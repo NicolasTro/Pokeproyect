@@ -46,8 +46,16 @@ export const Pokedex = () => {
 		}
 	};
 	/*---------------------------------------------------------------------------
-	/**/
-
+	/*BOTON BUSCAR*/
+	const buscar = () => {
+		if (limite > 0) {
+			axios(url).then(res => {
+				setListaPokemons(res.data.results);
+				
+			});
+		}
+	};
+	
 
 	useEffect(() => {
 		
@@ -71,14 +79,6 @@ export const Pokedex = () => {
 	}, [pokemon]);
 
 
-	const buscar = () => {
-		if (limite > 0) {
-			axios(url).then(res => {
-				setListaPokemons(res.data.results);
-				
-			});
-		}
-	};
 	useEffect(() => {
 		setPokemon(listaPokemons[indice]);
 		
