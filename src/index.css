@@ -238,8 +238,6 @@
 	border: solid black 2px;
 	border-radius: 15px;
 	bottom: -30px;
-	/* left: 5px; */
-	/* top: 20px; */
 }
 
 .visagra {
@@ -248,12 +246,23 @@
 	background-color: #ce1030;
 	height: 576px;
 	width: 60.5px;
-	/* box-shadow: 10px 5px 5px 5px rgba(0, 0, 0, 0.9); */
+
 	top: 30px;
 	border: solid black 2px;
-	border-radius:  8px 8px 8px 8px;
+	border-radius: 8px 8px 8px 8px;
 }
 
+.reflejoVisagra {
+	background-color: #d4344e;
+	position: relative;
+	right: 14px;
+	height: 574px;
+	width: 9px;
+
+	z-index: 1;
+	bottom: 9px;
+	border-radius: 2px;
+}
 .circuloBottom {
 	background-color: #800a1d;
 	width: 61px;
@@ -261,20 +270,9 @@
 	border-radius: 60%;
 	border: solid black 2px;
 	position: relative;
-	bottom: 222px;
+	bottom: 210px;
 	right: 3px;
 	z-index: 1;
-}
-.reflejoVisagra {
-	background-color: #d4344e;
-	position: relative;
-	right: 14px;
-	height: 574px;
-	width: 9px;
-	/* box-shadow: 10px 5px 5px 5px rgba(0, 0, 0, 0.9); */
-	z-index: 1;
-	bottom: 9px;
-	border-radius: 2px;
 }
 
 .circuloTop1 {
@@ -348,34 +346,31 @@
 }
 .circuloTop333 {
 	background-color: #ce1030;
-	width: 60px;
+	width: 59px;
 	height: 24px;
 	border-radius: 60%;
 	position: relative;
 	bottom: 236px;
-	right: 0px;
+	right: 1px;
 }
 
-
-.seccionBotonera{
+.seccionBotonera {
 	display: flex;
-	
+
 	align-items: center;
 	justify-content: center;
 	position: relative;
 	bottom: 60px;
 	right: 30px;
-	gap:10px;
-	
-	
+	gap: 10px;
+
 	/* border: solid black 3px; */
 }
-
 
 .botoneraSuperior {
 	/* border: solid black 3px; */
 	display: flex;
-	gap: 14px
+	gap: 14px;
 }
 
 .fondoBotonNegro {
@@ -396,7 +391,7 @@
 	border-left: solid white 3px;
 	/* border-top: solid white 3px; */
 }
-.botonesHorizontales{
+.botonesHorizontales {
 	display: flex;
 	gap: 12px;
 	align-items: center;
@@ -429,27 +424,22 @@
 	box-shadow: -1px 1px 5px 1px rgba(0, 0, 0, 0.8);
 }
 
-.cruz{
-
+.cruz {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100px;
-		
 }
-.cruzArriba button{
+.cruzArriba button {
 	border-radius: 6px 6px 0 0;
 	box-shadow: -3px 2px 2px 1px rgba(0, 0, 0, 0.8);
 }
 
-
-
-
-.botonArriba{
+.botonArriba {
 	background-color: #262626;
 	width: 30px;
 	height: 35px;
 }
-.botonAbajo{
+.botonAbajo {
 	background-color: #262626;
 	width: 30px;
 	height: 35px;
@@ -457,7 +447,7 @@
 	box-shadow: -3px 2px 2px 1px rgba(0, 0, 0, 0.8);
 }
 
-.botonCentro{
+.botonCentro {
 	background-color: #262626;
 	width: 30px;
 	height: 30px;
@@ -465,7 +455,7 @@
 	/* display: inline-block; */
 	/* border-left:solid white 2px; */
 }
-.botonDerecha{
+.botonDerecha {
 	background-color: #262626;
 	width: 35px;
 	height: 30px;
@@ -473,27 +463,207 @@
 	box-shadow: -3px 2px 2px 1px rgba(0, 0, 0, 0.8);
 }
 
-
-.botonIzquierda{
+.botonIzquierda {
 	background-color: #262626;
 	width: 35px;
 	height: 30px;
 	border-radius: 8px 0 0 8px;
 	box-shadow: -3px 2px 2px 1px rgba(0, 0, 0, 0.8);
 }
+
+.fondo {
+	background-image: url("./assets/images/fondo.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
+.pokedex {
+	position: relative;
+	top: 10px;
+}
+
+/* .transform */
+
+.fondoPantalla {
+	height: 100%;
+	background-image: url("../public/assets/Pokemon-Logo.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	/* Definir la animación */
+	animation: scaleIn 2s ease infinite;
+}
+
+/* Definir los keyframes para la animación */
+@keyframes scaleIn {
+	/* from {
+	  transform: scaleX(0);
+	}
+	to {
+		
+	  transform: scale(1.1);
+	}
+  } */
+
+	0% {
+		left: 0;
+		background-color: #3b4cca;
+	}
+	25% {
+		left: 100px;
+		background-color: green;
+	}
+	50% {
+		left: 200px;
+		background-color: yellow;
+	}
+	75% {
+		left: 100px;
+		background-color: red;
+	}
+	100% {
+		left: 0;
+		background-color: #3b4cca;
+	}
+}
+
+.aaaa0 {
+	/* border: solid black 3px; */
+	display: flex;
+	/* justify-content: center;*/
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 50vh;
+	z-index: 2;
+}
+
+.aaaa {
+	height: 500px;
+
+	background-image: url("./assets/images/Pokemon-Logo.png");
+	/* border: solid black 2px; */
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0%;
+	animation: logo 12s forwards 12s, heartbeat 2s infinite 10s ;
+	animation-delay: 10s;
+	width: 80vw;
+}
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes logo {
+	 from {
+	  opacity: 0%;
+	}
+	to {
+		
+	  opacity: 100%;
+	}
+   
+	/* 0% {
+		opacity: 0%;
+	}
+	25% {
+		opacity: 50%;
+		
+		
+	}
+	50% {
+		opacity: 100%;
+		
+	}
+	75% {
+		opacity: 50%;
+		
+	}
+	100% {
+		opacity: 0%;
+		
+	} */
+}
+@keyframes ash {
 	
-
-.fondo{
-background-image: url(./assets/images/fondo.png);
-background-repeat: no-repeat;
-background-size: cover;
-height: 100vh;
-
-
+	
+	
+	 0% {
+		opacity: 0%;
+	}
+	25% {
+		opacity: 50%;
+		
+		
+	}
+	50% {
+		opacity: 100%;
+		
+	}
+	75% {
+		opacity: 50%;
+		
+	}
+	100% {
+		opacity: 0%;
+	} 
 }
 
-.pokedex{
-position: relative;
-top: 10px;
-
+.aaaa1 {
+	/* border: solid green 3px; */
+	height: 100%;
+	width: 50%;
+	background-image: url("./assets/images/pngkey.com-ash-ketchum-png-4415554.png");
+	/* border: solid black 2px; */
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0%;
+	animation: ash 8s;
+	
 }
+.aaaa2 {
+	height: 500px;
+	height: 100%;
+	width: 50%;
+
+	background-image: url("./assets/images/pngkey.com-raikou-png-1871696.png");
+	
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0%;
+	animation: raikou 10s;
+	animation-delay: 5s;
+}
+
+@keyframes raikou {
+	0% {
+		opacity: 0%;
+	}
+	25% {
+		opacity: 50%;
+		transform: scale(1.1);
+		
+	}
+	50% {
+		opacity: 100%;
+		
+	}
+	75% {
+		opacity: 50%;
+		
+	}
+	100% {
+		opacity: 0%;
+	}
+}
+
