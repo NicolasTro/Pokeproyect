@@ -9,6 +9,7 @@
 
 	border: solid black 3px;
 	width: 400px;
+	/* height: 100%; */
 	height: 612px;
 	background-color: #800a1d;
 	border-radius: 40px 10px 10px 40px;
@@ -152,16 +153,27 @@
 	border-radius: 50%;
 	border: solid black 2px;
 	background-color: #0bcdff;
+	animation: algo 1.5s ease infinite;
 }
 
 .luzAzulOscuroFrente {
 	position: relative;
 	left: 1px;
-	top: 5px;
+	top: 2px;
 	width: 55px;
 	height: 55px;
 	border-radius: 50%;
 	background-color: #009dd3;
+	animation: algo 1.5s ease infinite;
+}
+
+@keyframes algo {
+	from {
+		background-color: #009dd3;
+	}
+	to {
+		background-color: #dff3dab3;
+	}
 }
 
 .luzAzulClaroFrente {
@@ -172,9 +184,11 @@
 	height: 36px;
 	border-radius: 50%;
 	background-color: #0accff;
+	animation: algo 1.5s ease infinite;
 }
 
 .luzBlancaFrente {
+	/* animation: algo 2s ease infinite; */
 	position: relative;
 	left: -1px;
 	top: 4px;
@@ -201,7 +215,7 @@
 .canvas {
 	position: relative;
 	top: -100px;
-
+	/* width: 390px; */
 	pointer-events: none;
 
 	border-radius: 40px 0 0 0;
@@ -249,7 +263,7 @@
 
 	top: 30px;
 	border: solid black 2px;
-	border-radius: 8px 8px 8px 8px;
+	border-radius: 10px;
 }
 
 .reflejoVisagra {
@@ -287,12 +301,12 @@
 }
 .circuloTop11 {
 	background-color: #ce1030;
-	width: 60px;
+	width: 57px;
 	height: 24px;
 	border-radius: 60%;
 	/* border: solid black 2px; */
 	position: relative;
-	bottom: 608px;
+	bottom: 603px;
 	right: -1px;
 }
 .circuloTop2 {
@@ -317,7 +331,7 @@
 }
 .circuloTop222 {
 	background-color: #ce1030;
-	width: 60px;
+	width: 57px;
 	height: 24px;
 	border-radius: 60%;
 	position: relative;
@@ -475,37 +489,27 @@
 	background-image: url("./assets/images/fondo.png");
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: center;
 	height: 100vh;
 }
 
 .pokedex {
+	/* border: solid black 3px; */
 	position: relative;
-	top: 10px;
+	top: 20vh;
+	/* display: flex; */
 }
-
-/* .transform */
 
 .fondoPantalla {
 	height: 100%;
 	background-image: url("../public/assets/Pokemon-Logo.png");
 	background-repeat: no-repeat;
 	background-size: contain;
-
-	/* Definir la animación */
 	animation: scaleIn 2s ease infinite;
+	border-radius: 10px;
 }
 
-/* Definir los keyframes para la animación */
 @keyframes scaleIn {
-	/* from {
-	  transform: scaleX(0);
-	}
-	to {
-		
-	  transform: scale(1.1);
-	}
-  } */
-
 	0% {
 		left: 0;
 		background-color: #3b4cca;
@@ -549,28 +553,28 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	opacity: 0%;
-	animation: logo 12s forwards 12s, heartbeat 2s infinite 10s ;
+	animation: logo 12s forwards 12s, heartbeat 2s infinite 10s;
 	animation-delay: 10s;
 	width: 80vw;
 }
 @keyframes heartbeat {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
 }
 
 @keyframes logo {
-	 from {
-	  opacity: 0%;
+	from {
+		opacity: 0%;
 	}
 	to {
-		
-	  opacity: 100%;
+		opacity: 100%;
 	}
-   
+
 	/* 0% {
 		opacity: 0%;
 	}
@@ -593,28 +597,21 @@
 	} */
 }
 @keyframes ash {
-	
-	
-	
-	 0% {
+	0% {
 		opacity: 0%;
 	}
 	25% {
 		opacity: 50%;
-		
-		
 	}
 	50% {
 		opacity: 100%;
-		
 	}
 	75% {
 		opacity: 50%;
-		
 	}
 	100% {
 		opacity: 0%;
-	} 
+	}
 }
 
 .aaaa1 {
@@ -628,7 +625,6 @@
 	background-position: center;
 	opacity: 0%;
 	animation: ash 8s;
-	
 }
 .aaaa2 {
 	height: 500px;
@@ -636,7 +632,7 @@
 	width: 50%;
 
 	background-image: url("./assets/images/pngkey.com-raikou-png-1871696.png");
-	
+
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -652,18 +648,27 @@
 	25% {
 		opacity: 50%;
 		transform: scale(1.1);
-		
 	}
 	50% {
 		opacity: 100%;
-		
 	}
 	75% {
 		opacity: 50%;
-		
 	}
 	100% {
 		opacity: 0%;
 	}
 }
 
+.card {
+	/* border: solid black 3px; */
+	border-radius: 10px;
+	height: 100%;
+}
+
+.pokeImagen img:hover {
+	transform: scale(2.1);
+}
+.pokeImagen img {
+	transition: transform 0.3s ease;
+}

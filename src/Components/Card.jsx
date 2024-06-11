@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from "react";
-
 
 const Card = ({pokemon}) => {	
 
 	return (
 		<>
-			{!pokemon ? (
+			{pokemon.name==="" ? (
         <div className="fondoPantalla"></div>
       ) : (
         <>
-          <h1>{pokemon.name.toUpperCase()}</h1> 
-          { (<div><img style={{ width: "150px", height: "150px" }}
+          <div className="card">
+
+          <h3>{pokemon.name.toUpperCase()}</h3> 
+          { (<div className="pokeImagen">
+            <img style={{  height: "120px" }}
                  src={pokemon.imagen}                
-              />
+                 />
             </div>
           )}
+        </div>
         </>
       )}
 		</>

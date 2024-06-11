@@ -1,8 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import axios from "axios";
-
 import { useState } from "react";
-
 import { Visagra } from "./Visagra";
 import { Botonera } from "./Botonera";
 import { Pantalla } from "./Pantalla";
@@ -14,6 +12,7 @@ export const Pokedex = () => {
 	const [limite, setLimite] = useState(0);
 	const [listaPokemons, setListaPokemons] = useState([]);
 	const [indice, setIndice] = useState(0);
+	const [inicio, setInicio] = useState(false);
 
 	const [pokemon, setPokemon] = useState({
 		identificador: 0,
@@ -39,10 +38,10 @@ export const Pokedex = () => {
 	/*----------------------------------------------------------------------------
 	/*BOTONES SIGUIENTE Y ANTERIOR POKEMON */
 	const siguiente = () => {
-		if (listaPokemons.length > 0 && limite > 0) {
-			if (indice < listaPokemons.length - 1) {
+		if (listaPokemons.length > 0 && limite >= 0) {
+			if(indice<listaPokemons.length-1){
 				setIndice(indice + 1);
-			}
+				}
 		}
 	};
 
@@ -51,39 +50,55 @@ export const Pokedex = () => {
 			setIndice(indice - 1);
 		}
 	};
+
+	
+	/*---------------------------------------------------------------------------
+	/*CARGAR DATOS COMPLETOS*/
+	const cargarDatosCompletos = () => {
+		console.log(pokemon);
+		console.log("asdas");
+
+		axios(pokemon.url).then(res => {
+			setPokemon(prevPokemon => ({
+				...prevPokemon,
+				identificador: id,
+				name: listaPokemons[indice].name,
+				endpoint: listaPokemons[indice].url,
+				imagen: res.data.sprites.other.showdown.front_default,
+			}));
+		});
+		const id = listaPokemons[indice].url.split("/")[6];
+	};
+
 	/*---------------------------------------------------------------------------
 	/*BOTON BUSCAR*/
 	const buscar = () => {
 		if (limite > 0) {
-			axios(url).then(res => {
+			axios(url).then(res => {				
 				setListaPokemons(res.data.results);
+				setIndice(0)
+				setInicio(false);				
 			});
 		}
 	};
 
 	useEffect(() => {
-		if (listaPokemons.length > 0 && listaPokemons[indice].url) {
-			axios(pokemon.url).then(res => {
-				setPokemon(prevPokemon => ({
-					...prevPokemon,
-					identificador: id,
-					name: listaPokemons[indice].name,
-					endpoint: listaPokemons[indice].url,
-					imagen: res.data.sprites.front_default,
-				}));
-
-				console.log(pokemon.imagen);
-			});
-
-			const id = listaPokemons[indice].url.split("/")[6];
-
-			console.log(pokemon);
+		if (listaPokemons.length > 0) {			
+			if (!inicio) {
+				setPokemon(listaPokemons[0]);
+				setInicio(true)
+			} else {
+				setPokemon(listaPokemons[indice]);
+			}
 		}
-	}, [pokemon]);
+	}, [listaPokemons, indice]);
 
 	useEffect(() => {
-		setPokemon(listaPokemons[indice]);
-	}, [indice]);
+		if (pokemon.name !== "") {			
+			cargarDatosCompletos();
+		}
+	}, [pokemon.url, indice]);
+
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
@@ -98,7 +113,7 @@ export const Pokedex = () => {
 
 		ctx.beginPath();
 		ctx.moveTo(0, 100);
-		ctx.bezierCurveTo(280, 110, 120, 30, 450, 28);
+		ctx.bezierCurveTo(280, 110, 120, 30, 390, 28);
 		ctx.lineWidth = 15;
 		ctx.strokeStyle = "#500";
 		ctx.stroke();
@@ -111,7 +126,7 @@ export const Pokedex = () => {
 				<div className="cabecera">
 					<div className="luces">
 						<div className="grid-item">
-							<LuzPrincipal/>
+							<LuzPrincipal />
 						</div>
 						<div className="grid-item">
 							<div className="tresLuces header">
